@@ -3,12 +3,7 @@
 import { revalidatePath } from "next/cache";
 import { connectDB } from "./db";
 import { User } from "./schema";
-import { TAddUserFormState, TFetchUserAll } from "@/type/user";
-
-export const fetchUsersAll: TFetchUserAll = async () => {
-  connectDB();
-  return await User.find({});
-};
+import { TAddUserFormState } from "@/type/user";
 
 export const addUser = async (
   prevState: TAddUserFormState,
