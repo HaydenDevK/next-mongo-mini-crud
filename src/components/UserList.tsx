@@ -1,3 +1,4 @@
+import { deleteUser } from "@/libs/action";
 import { TUser } from "@/type/user";
 
 const fetchUsersAll = async () =>
@@ -21,7 +22,10 @@ function UserItem({ user }: { user: TUser }) {
         <h1 className="text-xl font-semibold">{user.name}</h1>
         <p>{user.email}</p>
         <div className="flex gap-4 justify-end">
-          <button className="underline text-rose-500">삭제</button>
+          <form action={deleteUser}>
+            <input type="hidden" name="id" value={user._id} />
+            <button className="underline text-rose-500">삭제</button>
+          </form>
         </div>
       </div>
     </li>

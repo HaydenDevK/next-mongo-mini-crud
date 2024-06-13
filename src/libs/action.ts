@@ -35,3 +35,13 @@ export const addUser = async (
     };
   }
 };
+
+export const deleteUser = async (formData: FormData) => {
+  const id = formData.get("id");
+
+  connectDB();
+
+  await User.findByIdAndDelete(id);
+
+  revalidatePath("/");
+};
