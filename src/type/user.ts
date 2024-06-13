@@ -5,3 +5,8 @@ export type TUser = {
 };
 
 export type TFetchUserAll = () => Promise<TUser[]>;
+
+export type TAddUserFormState = {
+  success: boolean;
+  message: string;
+};
